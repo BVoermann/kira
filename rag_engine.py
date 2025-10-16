@@ -1,4 +1,4 @@
-from langchain.llms import Ollama
+from langchain_community.llms import Ollama
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 
