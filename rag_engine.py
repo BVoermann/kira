@@ -1,4 +1,4 @@
-from langchain_community.llms import Ollama
+from langchain_ollama import OllamaLLM
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 
@@ -7,7 +7,7 @@ class RAGEngine:
         self.vectorstore = vectorstore
 
         # local LLM
-        self.llm = Ollama(
+        self.llm = OllamaLLM(
             model=model_name,
             temperature=0.7
         )
@@ -40,7 +40,7 @@ class RAGEngine:
 
     def query(self, question):
         """Query the RAG system"""
-        result = self.qa_chain.query({"query": question})
+        result = self.qa_chain.invoke({"query": question})
         return {
             "answer": result["result"],
             "sources": result["source_documents"],

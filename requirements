@@ -1,7 +1,10 @@
 chromadb
+chroma_db/
 gradio
 langchain
 langchain-community
+langchain-huggingface
+langchain-ollama
 pypdf
 python-docx
 sentence-transformers

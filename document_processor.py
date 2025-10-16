@@ -1,6 +1,6 @@
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 import os
 
@@ -10,7 +10,7 @@ from langchain_core.vectorstores import VectorStore
 class DocumentProcessor:
     def __init__(self, persist_directory="./chroma_db"):
         self.embeddings = HuggingFaceEmbeddings(
-            model_name="sentence_transformers/all-MiniLM-L6-v2"
+            model_name="all-MiniLM-L6-v2"
         )
         self.persist_directory = persist_directory
         self.vectorstore = None
@@ -46,10 +46,9 @@ class DocumentProcessor:
         """Create vector database from chunks"""
         self.vectorstore = Chroma.from_documents(
             documents=chunks,
-            embeddings=self.embeddings,
+            embedding=self.embeddings,
             persist_directory=self.persist_directory
         )
-        self.vectorstore.persist()
         print(f"Created vectorstore with {len(chunks)} chunks")
 
     def load_vectorstore(self):
