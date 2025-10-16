@@ -34,9 +34,9 @@ with gr.Blocks() as demo:
     with gr.Tab("Upload Documents"):
         file_upload = gr.File(
             file_count="multiple",
-            label="Upoload Documents (pdf or txt)"
+            label="Upload Documents (.pdf or .txt)"
         )
-        upload_btn = gr.Button(label="Process Documents")
+        upload_btn = gr.Button("Process Documents")
         upload_status = gr.Textbox(label="Status")
 
         upload_btn.click(
