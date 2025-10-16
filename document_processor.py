@@ -10,7 +10,7 @@ from langchain_core.vectorstores import VectorStore
 class DocumentProcessor:
     def __init__(self, persist_directory="./chroma_db"):
         self.embeddings = HuggingFaceEmbeddings(
-            model_name="all-MiniLM-L6-v2"
+            model_name="all-mpnet-base-v2"
         )
         self.persist_directory = persist_directory
         self.vectorstore = None
