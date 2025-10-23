@@ -1,7 +1,7 @@
 # Local RAG Document Chat
 
 KIRA - Knowledge Interface Retrieval Agent - ist a local RAG system that allows you to chat with your documents 
-using open source, locally runLLMs. Think of it as a small but self-hosted and private alternative to services like 
+using open source, locally run LLMs. Think of it as a small but self-hosted and private alternative to services like 
 Google NotebookLM. 
 
 ## Features
